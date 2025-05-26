@@ -120,8 +120,6 @@ def test_odstraneni_ukolu_negative(monkeypatch, test_connection, capsys):
     cursor.execute("INSERT INTO ukoly (task_name, description, stav) VALUES (%s, %s, %s)", 
                 ("test_ukol", "test_popis", "Nezahájeno"))
     test_connection.commit()
-    cursor.execute("SELECT id FROM ukoly WHERE task_name = %s", ("test_ukol",))
-    test_id = cursor.fetchone()[0]
 
     test_id = 9999
     while True:
